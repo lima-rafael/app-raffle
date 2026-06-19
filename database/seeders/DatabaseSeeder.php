@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         Raffle::factory(3)->create();
+        User::factory()->create(['email' => 'joe@doe.com']);
     }
 }
