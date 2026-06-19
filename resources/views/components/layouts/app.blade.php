@@ -13,7 +13,40 @@
         @vite(['resources/css/app.css', 'resources/js/app,js'])
     </head>
     <body class="bg-[#FDFDFC] text-[#1b1b18]">
+         @auth
+            
+            <x-ui.nav>
 
+                <x-ui.nav.item route="home">
+                    Home
+                </x-ui.nav.item>
+
+                <x-ui.nav.item route="admin.raffle">
+                    Raffle
+                </x-ui.nav.item>
+
+                <x-ui.nav.item route="logout">
+                    Logout
+                </x-ui.nav.item>
+
+            </x-ui.nav>
+
+        @else   
+
+            <x-ui.nav>
+
+                <x-ui.nav.item route="home">
+                    Home
+                </x-ui.nav.item>
+
+                <x-ui.nav.item route="login">
+                    Login
+                </x-ui.nav.item>
+
+            </x-ui.nav>
+
+        @endauth
+        
         <x-ui.container>
 
             {{ $slot }}
