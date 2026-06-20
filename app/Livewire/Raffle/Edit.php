@@ -4,7 +4,6 @@ namespace App\Livewire\Raffle;
 
 use App\Models\Raffle;
 use Livewire\Attributes\On;
-use Livewire\Attributes\Validate;
 use Livewire\Component;
 
 class Edit extends Component
