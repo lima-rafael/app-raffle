@@ -1,3 +1,6 @@
 <div>
-    {{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}
+    <livewire:raffle.edit />
+    <livewire:raffle.destroy />
+    <livewire:raffle.create />
+    <livewire:raffle.teble />
 </div>
