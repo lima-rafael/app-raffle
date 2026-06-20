@@ -21,9 +21,11 @@
                     Home
                 </x-ui.nav.item>
 
-                <x-ui.nav.item route="admin.raffle">
-                    Raffle
-                </x-ui.nav.item>
+                @can('admin')
+                    <x-ui.nav.item route="admin.raffle">
+                        Raffle
+                    </x-ui.nav.item>
+                @endcan
 
                 <x-ui.nav.item route="logout">
                     Logout
