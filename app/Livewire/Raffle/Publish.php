@@ -2,11 +2,31 @@
 
 namespace App\Livewire\Raffle;
 
+use App\Models\Raffle;
+use Illuminate\Contracts\View\View;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class Publish extends Component
 {
-    public function render()
+    public ?Raffle $raffle = null;
+    public bool $modal = false;
+
+    #[On('raffle::publish')]
+    public function open(int $id): void
+    {
+        $this->modal = true;
+        $this->raffle = Raffle::findOrFail($id);
+    }
+
+    public function handle(): void
+    {
+        $this->raffle->update(['published_at' => now()]);
+        $this->dispatch('raffle::refresh');
+        $this->reset();
+    }
+
+    public function render(): View
     {
         return view('livewire.raffle.publish');
     }

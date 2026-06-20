@@ -2,7 +2,7 @@
     
     @if ($modal)
 
-    <x-ui.modal title="Deleting Raffle #{{ $id }}">
+    <x-ui.modal title="Deleting Raffle #{{ $raffle->id }}">
 
         <p class="text-red-700 font-bold mb-4 bg-red-200 rounded border-2 border-red-400 p-4">
 
@@ -12,16 +12,12 @@
 
         <div class="flex items-center justify-between">
 
-            <x-ui.button type="button" wire:click="$set('modal', false)" class="bg-gray-300">
-
-                No... I'm ok!
-                
+            <x-ui.button type="button" wire:click="$set('modal', false)" secondary>
+                No... I'm ok!  
             </x-ui.button>
 
-            <x-ui.button type="button" wire:click="handle" wire:loading.attr="disabled" wire:target="handle">
-
+            <x-ui.button type="button" wire:click="handle" danger wire:loading.attr="disabled" wire:target="handle">
                 Yes, please!!!
-
             </x-ui.button>
 
         </div>
