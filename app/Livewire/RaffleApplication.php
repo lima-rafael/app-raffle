@@ -20,9 +20,10 @@ class RaffleApplication extends Component
 
     public bool $success = false;
 
-    public function mount(): void
+    public function mount(Raffle $raffle): void
     {
-        $this->raffle = Raffle::inRandomOrder()->first();
+        $this->authorize('onlyPublished', $raffle);
+        $this->raffle = $raffle;
     }
 
     public function rules(): array
@@ -51,6 +52,7 @@ class RaffleApplication extends Component
 
     public function getWinner(): void
     {
+        $this->authorize('drawWinner', $this->raffle);
         $winner = $this->raffle->applicants()->inRandomOrder()->first();
         $this->winner = $winner->email;
     }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LogoutController;
+use App\Livewire\Home;
 use Illuminate\Support\Facades\Route;
 
 use App\Livewire\RaffleApplication;
@@ -16,4 +17,5 @@ Route::middleware('auth')->group(function () {
         ->name('admin.raffle');
 });
 
-Route::get('/', RaffleApplication::class)->name('home');
+Route::get('/', Home::class)->name('home');
+Route::get('/{raffle}', RaffleApplication::class)->name('raffle.application');

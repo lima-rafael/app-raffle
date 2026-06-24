@@ -60,12 +60,14 @@
             <p class="mt-2">{{ $winner }}</p>
 
         </div>
+    @endif
 
-    @else
-
+    @can('drawWinner', $raffle)
+        
         <x-ui.button  type="button" wire:click="getWinner" class="mt-4">Draw the winner</x-ui.button>
 
-    @endif
+    @endcan
+
 
 
 </div>
