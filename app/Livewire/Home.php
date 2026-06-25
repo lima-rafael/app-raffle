@@ -13,7 +13,7 @@ class Home extends Component
     public function raffles(): Collection
     {
         return Raffle::query()
-            ->withCount('applicants')
+            ->withCount('applicants', 'winners')
             ->whereNotNull('published_at')
             ->get();
     }
